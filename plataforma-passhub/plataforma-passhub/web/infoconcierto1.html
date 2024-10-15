@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit this template
+-->
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title>InfoConcierto</title>
+        <!-- Bootstrap CSS -->
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+        <link rel="icon" type="image/png" href="recursos/images/IconoWeb.png">
+        <link rel="stylesheet" href="style.css" type="text/css"/>
+        <link rel="stylesheet" href="style.css" type="text/css">
+        <link rel="stylesheet" href="style.css" type="text/css"/>
+        <link rel="stylesheet" href="style.css" type="text/css">
+
+        <!-- Custom CSS -->
+        <style>
+            /* Header Styling */
+            header {
+                background-color: #343a40;
+                padding: 10px 0;
+            }
+
+            header .navbar-brand {
+                color: #fff;
+                font-weight: bold;
+                font-size: 24px;
+            }
+
+            header .navbar-brand:hover {
+                color: #ff6347; /* Tomato color */
+            }
+
+            header .form-control {
+                border-radius: 30px;
+            }
+
+            header .btn-outline-success {
+                border-radius: 30px;
+                border-color: #F0F600;
+                color: #F0F600;
+            }
+
+            header .btn-outline-success:hover {
+                background-color: #D8DD0D;
+                color: #fff;
+            }
+
+            header .nav-link {
+                color: #fff;
+                margin-left: -25px;
+                margin-top: -10px;
+
+            }
+
+            header .nav-link:hover {
+                color: #F0F600;
+            }
+
+            header .dropdown-menu {
+                background-color: #343a40;
+                border: none;
+
+            }
+
+            header .dropdown-item {
+                color: #fff;
+            }
+
+            header .dropdown-item:hover {
+                background-color: #D8DD0D;
+                color: #fff;
+            }
+
+            /* Main Content Styling */
+            .container h1 {
+                color: #343a40;
+                font-weight: bold;
+            }
+
+            .container p {
+                font-size: 18px;
+                color: #6c757d;
+            }
+
+            /* Footer Styling */
+            footer {
+                background-color: #2d2d2d;
+                color: #fff;
+                padding: 40px 0;
+                font-family: 'Arial', sans-serif;
+            }
+
+            footer h5 {
+                color: #F0F600;
+                margin-bottom: 20px;
+                font-weight: 600;
+            }
+
+            footer ul {
+                list-style-type: none;
+                padding: 0;
+            }
+
+            footer ul li {
+                margin-bottom: 10px;
+            }
+
+            footer ul li a {
+                color: #b5b5b5;
+                text-decoration: none;
+                transition: color 0.3s;
+            }
+
+            footer ul li a:hover {
+                color: #fff;
+            }
+
+            .footer-logo-container {
+                position: relative;
+                left: 0; /* Align container to the left */
+            }
+
+            .footer-logo {
+                width: 250px; /* Larger logo size */
+                margin-bottom: 20px; /* Space below */
+                margin-top: 30px; /* Space above */
+            }
+
+            .footer-description {
+                font-size: 14px;
+                color: #b5b5b5;
+                margin-top: 15px;
+                text-align: left; /* Align text to the left */
+            }
+
+            .social-list {
+                display: flex;
+                padding-left: 0;
+                margin-top: 10px;
+            }
+
+            .social-list li {
+                list-style: none;
+                margin-right: 15px;
+            }
+
+            .social-list li a {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 50px;
+                height: 50px;
+                background-color: #000;
+                color: #fff;
+                border-radius: 50%;
+                font-size: 24px; /* Icon size */
+                transition: transform 0.3s, background-color 0.3s;
+                text-decoration: none; /* Remove underline from icons */
+            }
+
+            .social-list li a:hover {
+                background-color: #F0F600; /* Background color on hover */
+                transform: scale(1.1); /* Enlarge on hover */
+            }
+
+            .footer-text {
+                margin-top: 30px;
+                font-size: 14px;
+                color: #b5b5b5;
+            }
+
+            .footer-text a {
+                color: #b5b5b5;
+                text-decoration: none;
+                margin-left: 5px;
+            }
+
+            .footer-text a:hover {
+                color: #fff;
+                text-decoration: underline;
+            }
+
+            .footer-libro-img {
+                width: 150px;
+                height: auto;
+                transition: transform 0.3s, box-shadow 0.3s;
+            }
+
+            .footer-libro-img:hover {
+                transform: scale(1.1);
+                box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+            }
+
+            /* Banner Principal */
+            .hero-banner {
+                background-image: url('Banner.jpg');
+                background-size: cover;
+                background-position: center;
+                padding: 100px 0;
+                color: white;
+                text-align: center;
+            }
+
+            .banner-title {
+                font-size: 48px;
+                font-weight: 700;
+                margin-bottom: 20px;
+            }
+
+            .banner-subtitle {
+                font-size: 24px;
+                font-weight: 300;
+                margin-bottom: 30px;
+            }
+
+            .btn-primary {
+                background-color: #D8DD0D;
+                border-color: #D8DD0D;
+                padding: 10px 20px;
+                font-size: 18px;
+            }
+
+            .btn-primary:hover{
+                background-color: #fff;
+                color: #030303;
+                border-color: #D8DD0D;
+            }
+
+
+            /* Sección de Eventos Destacados */
+            .featured-events {
+                margin-top: 50px;
+            }
+
+            .section-title {
+                font-size: 42px;
+                font-weight: 600;
+                margin-bottom: 30px;
+                font-family:Arial;
+            }
+
+            .event-card {
+                background-color: #f9f9f9;
+                padding: 20px;
+                margin-bottom: 30px;
+                border-radius: 8px;
+                text-align: center;
+
+            }
+
+            .event-card img {
+                max-width: 100%;
+                border-radius: 8px;
+                margin-bottom: 15px;
+            }
+
+            .event-title {
+                font-size: 20px;
+                font-weight: 500;
+                margin-bottom: 10px;
+            }
+
+            .event-date {
+                font-size: 16px;
+                color: #757575;
+            }
+
+            /* Sección de Grilla de Eventos */
+            .events-grid {
+                margin-top: 50px;
+            }
+
+            .event-card {
+                background-color: #ffffff;
+                padding: 15px;
+                border: 1px solid #eeeeee;
+                border-radius: 8px;
+                text-align: center;
+            }
+
+            .event-card img {
+                max-width: 100%;
+                border-radius: 8px;
+                margin-bottom: 10px;
+            }
+
+            .event-title {
+                font-size: 18px;
+                font-weight: 500;
+                margin-bottom: 5px;
+            }
+
+            .event-date {
+                font-size: 14px;
+                color: #9e9e9e;
+            }
+
+            <!-- CSS INFO CONCIERTO -->
+            .body {
+                background-color: #F9A825;
+                margin: 0;
+                padding: 0;
+                font-family: Arial, sans-serif;
+                color: #000000;
+            }
+            .banner-img img {
+                width: 100%;
+                display: block;
+            }
+
+            .precios-img h2 {
+                font-size: 3rem;
+                text-decoration: underline;
+                margin-top: 70px;
+            }
+
+            .precios-img img {
+                max-width: 70%;
+                height: auto;
+            }
+
+
+
+
+            .contenedor {
+                display: flex;
+                justify-content: space-between;
+                align-items: flex-start;
+                flex-wrap: wrap;
+                max-width: 1500px;
+                margin: 150px auto;
+                gap: 30px;
+            }
+
+            .spotify {
+                flex: 1;
+                max-width: 45%;
+                box-sizing: border-box;
+                margin: 100px 0;
+            }
+
+            .spotify iframe {
+                width: 100%;
+                height: 450px;
+                border-radius: 10px;
+            }
+
+            .ticket {
+                flex: 1;
+                max-width: 45%;
+                box-sizing: border-box;
+                background-color: #fff;
+                color: #333;
+                padding: 20px;
+                border-radius: 8px;
+                border: 1px solid #ddd;
+                display: flex;
+                flex-direction: column;
+            }
+
+            .ticket h3, .ticket h4 {
+                margin-top: 0;
+                font-weight: bold;
+            }
+
+            .quantity {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                margin: 5px 0;
+                padding: 10px;
+                background-color: #f8f8f8;
+                border-radius: 5px;
+            }
+
+            .quantity div {
+                display: flex;
+                align-items: center;
+            }
+
+            .quantity span {
+                margin-right: 10px;
+                font-weight: bold;
+            }
+
+            .quantity button {
+                width: 30px;
+                height: 30px;
+                border: none;
+                background-color: #ddd;
+                color: #333;
+                border-radius: 50%;
+                cursor: pointer;
+            }
+
+            .quantity input {
+                width: 40px;
+                text-align: center;
+                border: none;
+                background-color: transparent;
+                font-size: 16px;
+                margin: 0 5px;
+            }
+
+            .btn2 {
+                padding: 15px 0;
+                margin-top: 20px;
+                color: white;
+                background-color: #f44336;
+                border: none;
+                border-radius: 4px;
+                cursor: pointer;
+                text-align: center;
+                font-weight: bold;
+                font-size: 16px;
+                width: 100%;
+            }
+
+            .btn2:hover {
+                background-color: #d32f2f;
+            }
+
+            .ticket-info {
+                display: flex;
+                flex-direction: column;
+            }
+
+            .ticket-type {
+                font-weight: bold;
+                margin-bottom: 5px; /* Añade un pequeño espacio debajo del tipo de entrada */
+            }
+
+            .ticket-price {
+                font-weight: normal;
+                color: #555; /* Elige un color que contraste adecuadamente */
+            }
+
+            .ticket-controls {
+                display: flex;
+                align-items: center;
+            }
+
+            .ticket-controls button {
+                width: 30px;
+                height: 30px;
+                border: none;
+                background-color: #ddd;
+                color: #333;
+                border-radius: 50%;
+                cursor: pointer;
+            }
+
+            .ticket-controls input {
+                width: 40px;
+                text-align: center;
+                border: none;
+                background-color: transparent;
+                font-size: 16px;
+                margin: 0 5px;
+                pointer-events: none;
+            }
+
+            .total-display {
+                margin: 20px 0;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+
+            .total-display {
+                font-weight: bold;
+                padding: 10px;
+                background-color: #f8f8f8;
+                border-radius: 5px;
+            }
+
+            .buy-button {
+                width: 100%;
+                padding: 15px;
+                background-color: #e74c3c;
+                color: white;
+                border: none;
+                border-radius: 25px;
+                cursor: pointer;
+                font-size: 18px;
+                text-align: center;
+            }
+
+            .buy-button:hover {
+                background-color: #c0392b;
+            }
+
+            .ticket h3 {
+                font-size: 40px; /* Ajusta este valor al tamaño deseado */
+                font-weight: bold; /* Opcional: para hacer el texto más grueso */
+            }
+
+            .ticket p {
+                margin-top: 5px; /* Ajusta el margen superior */
+                margin-bottom: 5px; /* Ajusta el margen inferior */
+                font-size: 20px; /* Ajusta este valor al tamaño deseado */
+            }
+
+            .ticket h4 {
+                font-size: 30px; /* Ajusta este valor al tamaño deseado */
+            }
+
+            .total-display span {
+                font-size: 20px; /* Ajusta este valor al tamaño deseado */
+            }
+
+            .infoadc {
+                font-size: 5px; /* Ajusta este valor al tamaño deseado */
+            }
+
+            .video-container {
+                display: flex;
+                justify-content: center; /* Centra horizontalmente */
+                align-items: center; /* Centra verticalmente si es necesario */
+                margin: 100px 0; /* Añade espacio arriba y abajo */
+            }
+
+            iframe {
+                max-width: 100%; /* Hace que el video sea responsivo */
+            }
+
+
+        </style>
+    </head>
+
+    <body>
+        <!-- Header -->
+        <header class="navbar navbar-expand-lg navbar-dark">
+            <a class="navbar-brand" href="#">
+                <img src="recursos/images/LogoWeb1.png" alt="" width="200" height="70">
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarContent">
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="#">Conciertos</a>
+                        <a class="dropdown-item" href="#">Entretenimiento</a>
+                        <a class="dropdown-item" href="#">Deportes</a>
+                    </div>
+                </li>
+                <!-- Buscador de Barra -->
+                <form class="form-inline my-2 my-lg-0 mx-auto">
+                    <input class="form-control mr-sm-2" type="search" placeholder="Buscar eventos..." aria-label="Search">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
+                </form>
+                <!-- Login -->
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Login/Register</a>
+                    </li>
+                </ul>
+            </div>
+        </header>
+
+        <!-- INFO CONCIERTO/KEANE -->
+
+        <div class="banner-img">
+            <img src="recursos/images/keane-superior.png" alt="Keane Banner" class="img-fluid">
+        </div>
+
+        <div class="precios-img text-center my-4">
+            <h2 class="font-weight-bold">ZONAS Y PRECIOS</h2>
+            <img src="recursos/images/precios-keane.png" alt="Keane precios" class="img-fluid">
+        </div>
+
+        <div class="contenedor">
+            <!-- Spotify Widget -->
+            <div class="spotify">
+                <iframe src="https://open.spotify.com/embed/album/0MlTOiC5ZYKFGeZ8h3D4rd?utm_source=generator" 
+                        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+            </div>
+
+            <!-- Ticket Purchase -->
+            <div class="ticket">
+                <h3>ADQUIERE TU ENTRADA</h3>
+                <p><strong>Fecha:</strong> Jueves 07 de Noviembre, 2024</p>
+                <p><strong>Inicio del concierto:</strong> 09:00 PM</p>
+                <p><strong>Duración aproximada:</strong> 2 horas</p>
+                <div class="quantity">
+                    <div class="ticket-info">
+                        <span class="ticket-type">CAMPO A</span>
+                        <span class="ticket-price">S/ 407.60</span>
+                    </div>
+                    <div class="ticket-controls">
+                        <button onclick="decreaseValue(this)">-</button>
+                        <input type="text" value="0" readonly>
+                        <button onclick="increaseValue(this)">+</button>
+                    </div>
+                </div>
+
+                <div class="quantity">
+                    <div class="ticket-info">
+                        <span class="ticket-type">CAMPO B</span>
+                        <span class="ticket-price">S/ 198.00</span>
+                    </div>
+                    <div class="ticket-controls">
+                        <button onclick="decreaseValue(this)">-</button>
+                        <input type="text" value="0" readonly>
+                        <button onclick="increaseValue(this)">+</button>
+                    </div>
+                </div>
+
+                <div class="quantity">
+                    <div class="ticket-info">
+                        <span class="ticket-type">CAMPO A</span>
+                        <span class="ticket-type">(CONADIS)</span>
+                        <span class="ticket-price">S/ 198.00</span>
+                    </div>
+                    <div class="ticket-controls">
+                        <button onclick="decreaseValue(this)">-</button>
+                        <input type="text" value="0" readonly>
+                        <button onclick="increaseValue(this)">+</button>
+                    </div>
+                </div>
+
+                <!-- Información adicional -->
+                <p>Recodartorio: Evento apto para menores de 18 años en compañía de un adulto. Ambos deben tener su entrada.</p>
+
+                <!-- Total -->
+                <div class="total-display">
+                    <span>Total (<span id="total-quantity">0</span>)</span>
+                    <span id="total-amount">S/ 0.00</span>
+                </div>
+                <!-- Botón de comprar con redirección a Pago.html -->
+                <button class="buy-button" onclick="window.location.href = 'Pago.html'">Comprar ahora</button>
+
+                <!-- Archivo JavaScript -->
+                <script src="infoconciertos1.js"></script>
+
+            </div>
+        </div>
+
+
+        <div class="video-container">
+            <iframe width="900" height="500" src="https://www.youtube.com/embed/LAvoHGwno9c?si=Zt4jq88lhU0Yah7w" 
+                    title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+            </iframe>
+        </div>
+
+        <footer>
+            <div class="container">
+                <div class="row">
+                    <!-- Sección del Logo Pegado a la Izquierda -->
+                    <div class="col-md-3 footer-logo-container">
+                        <img src="recursos/images/LogoWeb.png" alt="Logo Web" class="footer-logo">
+                        <p class="footer-description">
+                            Bienvenido a PassHub. Descubre nuestros servicios y mantente informado.
+                        </p>
+                    </div>
+
+                    <!-- Sección Sobre Nosotros -->
+                    <div class="col-md-3">
+                        <h5>SOBRE NOSOTROS</h5>
+                        <ul>
+                            <li><a href="#">Acerca de Nosotros</a></li>
+                            <li><a href="#">Términos y condiciones</a></li>
+                            <li><a href="#">Equipo</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Sección Enlaces Rápidos -->
+                    <div class="col-md-3">
+                        <h5>ENLACES RÁPIDOS</h5>
+                        <ul>
+                            <li><a href="#">Eventos</a></li>
+                            <li><a href="#">Blog</a></li>
+                            <li><a href="#">Contacto</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Sección Contáctanos -->
+                    <div class="col-md-3">
+                        <h5>CONTÁCTANOS</h5>
+                        <ul>
+                            <li><a href="mailto:info@passhub.com">info@passhub.com</a></li>
+                            <li><a href="tel:+1234567890">+123 456 7890</a></li>
+                            <li>Síguenos en redes sociales</li>
+                        </ul>
+                        <!-- Redes Sociales con Font Awesome Icons -->
+                        <ul class="social-list">
+                            <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                            <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                            <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- Imagen Interactiva del Libro de Reclamación -->
+                <div class="row mt-4 justify-content-center">
+                    <div class="col-auto text-center">
+                        <a href="#">
+                            <img src="recursos/images/libro.png" alt="Libro de Reclamación" class="footer-libro-img">
+                        </a>
+                    </div>
+                </div>
+                <!-- Texto de Derechos Reservados -->
+                <div class="footer-text text-center mt-3">
+                    &copy; 2024 PassHub. Todos los derechos reservados. | <a href="#">Política de Privacidad</a> | <a href="#">Términos de Servicio</a>
+                </div>
+            </div>
+        </footer>
+
+
+        <!-- Bootstrap JS and dependencies -->
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    </body>
+</html>

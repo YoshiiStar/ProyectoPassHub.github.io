@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>PassHub</title>
+        <link rel="icon" type="image/png" href="recursos/images/IconoWeb.png">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+        <style>
+            body {
+                background-color: #ffffff; /* Color de fondo para el resto de la página */
+                color: #000;
+                font-family: Arial, sans-serif;
+                margin: 0;
+                padding: 0;
+            }
+            .header-logo {
+                background-color: #343a40; /* Color de fondo para el header */
+                padding: 20px 0; /* Espaciado superior e inferior */
+                text-align: center; /* Centrar el contenido del header */
+            }
+            .header-logo img {
+                width: 150px; /* Ajusta el tamaño del logo según sea necesario */
+            }
+            .container {
+                margin-top: 20px; /* Ajusta el margen superior si es necesario */
+            }
+            .event-card {
+                background-color: #f8f9fa;
+                border-radius: 10px;
+                padding: 20px;
+            }
+            .event-card img {
+                width: 100%;
+                border-radius: 10px;
+            }
+            .event-title {
+                font-size: 24px;
+                margin-top: 10px;
+            }
+            .countdown {
+                font-size: 24px;
+                font-weight: bold;
+                color: #007bff;
+                margin-top: 20px;
+            }
+            .payment-option {
+                background-color: #e9ecef;
+                border: 1px solid #dee2e6;
+                padding: 10px;
+                border-radius: 10px;
+                margin-bottom: 15px;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+            .payment-option:hover {
+                border-color: #007bff;
+            }
+            .payment-option input {
+                margin-right: 10px;
+            }
+            .total-summary {
+                background-color: #f8f9fa;
+                padding: 20px;
+                border-radius: 10px;
+            }
+            .pay-button {
+                background-color: #007bff;
+                color: #fff;
+                border: none;
+                padding: 10px 20px;
+                font-size: 18px;
+                width: 100%;
+                border-radius: 5px;
+                cursor: pointer;
+            }
+            .pay-button:disabled {
+                background-color: #6c757d;
+            }
+            .modal-body .form-control {
+                border-radius: 5px;
+                box-shadow: none;
+            }
+            .form-group {
+                margin-bottom: 1rem;
+            }
+            .form-control:focus {
+                border-color: #007bff;
+                box-shadow: 0 0 0 0.2rem rgba(38, 143, 255, 0.25);
+            }
+            .card-icon {
+                width: 24px;
+                height: 24px;
+                margin-right: 10px;
+            }
+            .form-row {
+                display: flex;
+                flex-wrap: wrap;
+            }
+            .form-row .form-group {
+                flex: 1;
+                margin-right: 10px;
+            }
+            .form-row .form-group:last-child {
+                margin-right: 0;
+            }
+            .is-invalid {
+                border-color: #dc3545;
+                box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.25);
+            }
+            .invalid-feedback {
+                display: none;
+                color: #dc3545;
+            }
+            .form-group.error .invalid-feedback {
+                display: block;
+            }
+            /* Footer Styling */
+            footer {
+                background-color: #2d2d2d;
+                color: #fff;
+                padding: 40px 0;
+                font-family: 'Arial', sans-serif;
+            }
+
+            footer h5 {
+                color: #F0F600;
+                margin-bottom: 20px;
+                font-weight: 600;
+            }
+
+            footer ul {
+                list-style-type: none;
+                padding: 0;
+            }
+
+            footer ul li {
+                margin-bottom: 10px;
+            }
+
+            footer ul li a {
+                color: #b5b5b5;
+                text-decoration: none;
+                transition: color 0.3s;
+            }
+
+            footer ul li a:hover {
+                color: #fff;
+            }
+
+            .footer-logo-container {
+                position: relative;
+                left: 0; /* Align container to the left */
+            }
+
+            .footer-logo {
+                width: 250px; /* Larger logo size */
+                margin-bottom: 20px; /* Space below */
+                margin-top: 30px; /* Space above */
+            }
+
+            .footer-description {
+                font-size: 14px;
+                color: #b5b5b5;
+                margin-top: 15px;
+                text-align: left; /* Align text to the left */
+            }
+
+            .social-list {
+                display: flex;
+                padding-left: 0;
+                margin-top: 10px;
+            }
+
+            .social-list li {
+                list-style: none;
+                margin-right: 15px;
+            }
+
+            .social-list li a {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 50px;
+                height: 50px;
+                background-color: #000;
+                color: #fff;
+                border-radius: 50%;
+                font-size: 24px; /* Icon size */
+                transition: transform 0.3s, background-color 0.3s;
+                text-decoration: none; /* Remove underline from icons */
+            }
+
+            .social-list li a:hover {
+                background-color: #F0F600; /* Background color on hover */
+                transform: scale(1.1); /* Enlarge on hover */
+            }
+
+            .footer-text {
+                margin-top: 30px;
+                font-size: 14px;
+                color: #b5b5b5;
+            }
+
+            .footer-text a {
+                color: #b5b5b5;
+                text-decoration: none;
+                margin-left: 5px;
+            }
+
+            .footer-text a:hover {
+                color: #fff;
+                text-decoration: underline;
+            }
+
+            .footer-libro-img {
+                width: 150px;
+                height: auto;
+                transition: transform 0.3s, box-shadow 0.3s;
+            }
+
+            .footer-libro-img:hover {
+                transform: scale(1.1);
+                box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+            }
+
+        </style>
+    </head>
+    <body>
+        <!-- Logo de la empresa -->
+        <div class="header-logo">
+            <img src="recursos/images/LogoWeb1.png" alt="Logo de la Empresa"> <!-- Cambia la ruta del logo -->
+        </div>
+
+        <div class="container">
+            <!-- Evento y resumen -->
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="event-card">
+                        <img src="recursos/images/keane-pago.jpg" alt="Evento">
+                        <h2 class="event-title">Keane - 20 años</h2>
+                        <p><i class="bi bi-calendar"></i> Domingo 21 de Noviembre, 11:00 a.m.</p>
+                        <p><i class="bi bi-geo-alt"></i> C. José Díaz s/n, Lima 15046, Perú</p>
+                        <div class="countdown" id="countdown"></div>
+                    </div>
+
+                    <!-- Métodos de pago -->
+                    <h4 class="mt-4">Elige tu método de pago</h4>
+
+                    <div class="payment-option">
+                        <label>
+                            <input type="radio" name="payment" value="tarjeta"> Tarjeta
+                        </label>
+                    </div>
+
+                    <div class="payment-option">
+                        <label>
+                            <input type="radio" name="payment" value="yape"> Yape o Plin
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Resumen de la compra -->
+                <div class="col-md-4">
+                    <div class="total-summary">
+                        <h4>Perú Vs. Colombia</h4>
+                        <p>Domingo 18 de Septiembre, 11:00 a.m.</p>
+                        <p>1 x GENERAL</p>
+                        <h5>Total: S/ 75.00 PEN</h5>
+
+                        <button class="pay-button" id="payButton" disabled>Pagar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal para Tarjeta -->
+        <div class="modal fade" id="tarjetaModal" tabindex="-1" aria-labelledby="tarjetaModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="tarjetaModalLabel">Pago con Tarjeta</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="tarjetaForm">
+                            <div class="form-group" id="cardNumberGroup">
+                                <label for="cardNumber" class="form-label">Número de Tarjeta</label>
+                                <div class="input-group">
+                                    <span class="input-group-text"><img src="https://via.placeholder.com/24x24" alt="Card Icon" class="card-icon"></span>
+                                    <input type="text" class="form-control" id="cardNumber" placeholder="1234 5678 9012 3456">
+                                    <div class="invalid-feedback">Por favor, ingresa el número de tarjeta.</div>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group flex-grow-1" id="cardNameGroup">
+                                    <label for="cardName" class="form-label">Nombre en la Tarjeta</label>
+                                    <input type="text" class="form-control" id="cardName" placeholder="Nombre Completo">
+                                    <div class="invalid-feedback">Por favor, ingresa el nombre en la tarjeta.</div>
+                                </div>
+                                <div class="form-group flex-grow-1" id="cardExpiryGroup">
+                                    <label for="cardExpiry" class="form-label">Fecha de Expiración</label>
+                                    <input type="text" class="form-control" id="cardExpiry" placeholder="MM/AA">
+                                    <div class="invalid-feedback">Por favor, ingresa la fecha de expiración.</div>
+                                </div>
+                            </div>
+                            <div class="form-group" id="cardCvcGroup">
+                                <label for="cardCvc" class="form-label">CVC</label>
+                                <input type="text" class="form-control" id="cardCvc" placeholder="123">
+                                <div class="invalid-feedback">Por favor, ingresa el CVC.</div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                        <button type="button" class="btn btn-primary" id="tarjetaSubmit">Pagar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal para Yape o Plin -->
+        <div class="modal fade" id="yapePlinModal" tabindex="-1" aria-labelledby="yapePlinModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="yapePlinModalLabel">Pago con Yape o Plin</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <h5>Yape</h5>
+                        <p>Escanea el siguiente código QR para pagar con Yape.</p>
+                        <img src="recursos/images/codigo.png" alt="Código QR de Yape" class="img-fluid">
+
+                        <h5 class="mt-4">Plin</h5>
+                        <p>Escanea el siguiente código QR para pagar con Plin.</p>
+                        <img src="recursos/images/codigo.png" alt="Código QR de Plin" class="img-fluid">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                        <button type="button" class="btn btn-primary" id="yapePlinPayButton">Pagar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer>
+            <div class="container">
+                <div class="row">
+                    <!-- Sección del Logo Pegado a la Izquierda -->
+                    <div class="col-md-3 footer-logo-container">
+                        <img src="recursos/images/LogoWeb.png" alt="Logo Web" class="footer-logo">
+                        <p class="footer-description">
+                            Bienvenido a PassHub. Descubre nuestros servicios y mantente informado.
+                        </p>
+                    </div>
+
+                    <!-- Sección Sobre Nosotros -->
+                    <div class="col-md-3">
+                        <h5>SOBRE NOSOTROS</h5>
+                        <ul>
+                            <li><a href="#">Acerca de Nosotros</a></li>
+                            <li><a href="#">Términos y condiciones</a></li>
+                            <li><a href="#">Equipo</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Sección Enlaces Rápidos -->
+                    <div class="col-md-3">
+                        <h5>ENLACES RÁPIDOS</h5>
+                        <ul>
+                            <li><a href="#">Eventos</a></li>
+                            <li><a href="#">Blog</a></li>
+                            <li><a href="#">Contacto</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Sección Contáctanos -->
+                    <div class="col-md-3">
+                        <h5>CONTÁCTANOS</h5>
+                        <ul>
+                            <li><a href="mailto:info@passhub.com">info@passhub.com</a></li>
+                            <li><a href="tel:+1234567890">+123 456 7890</a></li>
+                            <li>Síguenos en redes sociales</li>
+                        </ul>
+                        <!-- Redes Sociales con Font Awesome Icons -->
+                        <ul class="social-list">
+                            <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                            <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                            <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- Imagen Interactiva del Libro de Reclamación -->
+                <div class="row mt-4 justify-content-center">
+                    <div class="col-auto text-center">
+                        <a href="#">
+                            <img src="recursos/images/libro.png" alt="Libro de Reclamación" class="footer-libro-img">
+                        </a>
+                    </div>
+                </div>
+                <!-- Texto de Derechos Reservados -->
+                <div class="footer-text text-center mt-3">
+                    &copy; 2024 PassHub. Todos los derechos reservados. | <a href="#">Política de Privacidad</a> | <a href="#">Términos de Servicio</a>
+                </div>
+            </div>
+        </footer>
+
+
+
+        <!-- Scripts de Bootstrap y SweetAlert -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                // Actualizar el estado del botón de pago
+                function updatePayButton() {
+                    const selectedPayment = document.querySelector('input[name="payment"]:checked');
+                    const payButton = document.getElementById('payButton');
+                    payButton.disabled = !selectedPayment;
+                }
+
+                // Manejar el cambio en el método de pago
+                document.querySelectorAll('input[name="payment"]').forEach(input => {
+                    input.addEventListener('change', updatePayButton);
+                });
+
+                // Manejar el clic en el botón de pago
+                document.getElementById('payButton').addEventListener('click', function () {
+                    const selectedPayment = document.querySelector('input[name="payment"]:checked');
+                    if (selectedPayment) {
+                        const paymentMethod = selectedPayment.value;
+                        showPaymentModal(paymentMethod);
+                    } else {
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Oops...',
+                            text: 'Por favor, selecciona un método de pago.'
+                        });
+                    }
+                });
+
+                // Función para mostrar el modal correspondiente
+                function showPaymentModal(paymentMethod) {
+                    if (paymentMethod === 'tarjeta') {
+                        var tarjetaModal = new bootstrap.Modal(document.getElementById('tarjetaModal'));
+                        tarjetaModal.show();
+                    } else if (paymentMethod === 'yape') {
+                        var yapePlinModal = new bootstrap.Modal(document.getElementById('yapePlinModal'));
+                        yapePlinModal.show();
+                    }
+                }
+
+                // Manejar el clic en el botón de pago en el modal de Yape o Plin
+                document.getElementById('yapePlinPayButton').addEventListener('click', function () {
+                    var confirmationModal = new bootstrap.Modal(document.getElementById('confirmationModal'));
+                    confirmationModal.show();
+                });
+
+                // Validar y mostrar el modal de tarjeta
+                document.getElementById('tarjetaSubmit').addEventListener('click', function () {
+                    const cardNumber = document.getElementById('cardNumber').value.trim();
+                    const cardName = document.getElementById('cardName').value.trim();
+                    const cardExpiry = document.getElementById('cardExpiry').value.trim();
+                    const cardCvc = document.getElementById('cardCvc').value.trim();
+
+                    // Validar campos
+                    let valid = true;
+                    if (!cardNumber) {
+                        document.getElementById('cardNumberGroup').classList.add('error');
+                        valid = false;
+                    } else {
+                        document.getElementById('cardNumberGroup').classList.remove('error');
+                    }
+
+                    if (!cardName) {
+                        document.getElementById('cardNameGroup').classList.add('error');
+                        valid = false;
+                    } else {
+                        document.getElementById('cardNameGroup').classList.remove('error');
+                    }
+
+                    if (!cardExpiry) {
+                        document.getElementById('cardExpiryGroup').classList.add('error');
+                        valid = false;
+                    } else {
+                        document.getElementById('cardExpiryGroup').classList.remove('error');
+                    }
+
+                    if (!cardCvc) {
+                        document.getElementById('cardCvcGroup').classList.add('error');
+                        valid = false;
+                    } else {
+                        document.getElementById('cardCvcGroup').classList.remove('error');
+                    }
+
+                    if (valid) {
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Pago realizado',
+                            text: 'Tu pago con tarjeta ha sido procesado correctamente.'
+                        });
+                    }
+                });
+
+                document.getElementById('yapePlinPayButton').addEventListener('click', function () {
+                    // Aquí podrías agregar la lógica para procesar el pago con Yape/Plin si es necesario
+
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Pago realizado',
+                        text: 'Tu pago con Yape/Plin ha sido procesado correctamente.',
+                        confirmButtonText: 'Aceptar' // Opción para personalizar el texto del botón
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            // Aquí podrías redirigir al usuario a otra página o cerrar el modal si es necesario
+                            // Por ejemplo, cerrar el modal:
+                            var yapePlinModal = bootstrap.Modal.getInstance(document.getElementById('yapePlinModal'));
+                            yapePlinModal.hide();
+                            // O redirigir:
+                            // window.location.href = 'pagina_de_confirmacion.html';
+                        }
+                    });
+                });
+
+
+                // Mostrar temporizador de cuenta regresiva
+                function updateCountdown() {
+                    const targetDate = new Date('2024-11-21T00:00:00').getTime();
+                    const now = new Date().getTime();
+                    const distance = targetDate - now;
+
+                    if (distance < 0) {
+                        document.getElementById('countdown').innerHTML = 'El evento ha comenzado';
+                        return;
+                    }
+
+                    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+                    document.getElementById('countdown').innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+                }
+
+                setInterval(updateCountdown, 1000);
+            });
+        </script>
+    </body>
+</html>
