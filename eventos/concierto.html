@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>concierto</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <style>
+        /* Header Styling */
+        header {
+            background-color: #343a40;
+            padding: 10px 0;
+        }
+
+        header .navbar-brand {
+            color: #fff;
+            font-weight: bold;
+            font-size: 24px;
+        }
+
+        header .navbar-brand:hover {
+            color: #ff6347; /* Tomato color */
+        }
+
+        header .form-control {
+            border-radius: 30px;
+        }
+
+        header .btn-outline-success {
+            border-radius: 30px;
+            border-color: #F0F600;
+            color: #F0F600;
+        }
+
+        header .btn-outline-success:hover {
+            background-color: #D8DD0D;
+            color: #fff;
+        }
+
+        header .nav-link {
+            color: #fff;
+            margin-left: -25px;
+            margin-top: -10px; 
+            
+        }
+
+        header .nav-link:hover {
+            color: #F0F600;
+        }
+
+        header .dropdown-menu {
+            background-color: #343a40;
+            border: none;
+            
+        }
+
+        header .dropdown-item {
+            color: #fff;
+        }
+
+        header .dropdown-item:hover {
+            background-color: #D8DD0D;
+            color: #fff;
+        }
+
+        /* Main Content Styling */
+        .container h1 {
+            color: #343a40;
+            font-weight: bold;
+        }
+
+        .container p {
+            font-size: 18px;
+            color: #6c757d;
+        }
+
+        /* Footer Styling */
+        footer {
+            background-color: #343a40;
+            color: #fff;
+        }
+
+        footer p {
+            margin: 0;
+        }
+        /* Footer Styling */
+footer {
+    background-color: #2d2d2d;
+    color: #fff;
+    padding: 40px 0;
+}
+
+footer h5 {
+    color: #F0F600;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+footer ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+footer ul li {
+    margin-bottom: 10px;
+}
+
+footer ul li a {
+    color: #b5b5b5;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+footer ul li a:hover {
+    color: #fff;
+}
+
+.social-list {
+    display: flex;
+    padding-left: 0;
+}
+
+.social-list li {
+    margin-right: 15px;
+}
+
+.social-list li a img {
+    width: 24px;
+    height: 24px;
+    transition: transform 0.3s;
+}
+
+.social-list li a img:hover {
+    transform: scale(1.1);
+}
+
+.footer-text {
+    margin-top: 30px;
+    font-size: 14px;
+    color: #b5b5b5;
+}
+
+.footer-text a {
+    color: #b5b5b5;
+    text-decoration: none;
+    margin-left: 5px;
+}
+
+.footer-text a:hover {
+    color: #fff;
+    text-decoration: underline;
+}
+
+/* Banner Principal */
+
+
+
+/* Sección de Eventos Destacados */
+.featured-events {
+            margin-top: 50px;
+        }
+
+        .section-title {
+            font-size: 42px;
+            font-weight: 600;
+            margin-bottom: 30px;
+            font-family: chiller;
+        }
+
+        .event-card {
+            background-color: #f9f9f9;
+            padding: 20px;
+            margin-bottom: 30px;
+            border-radius: 8px;
+            text-align: center;
+            transition: transform 0.3s; /* Añadido para suavizar la animación */
+        }
+
+        .event-card img {
+            width: 100%;
+            height: 200px; /* Ajusta la altura según sea necesario */
+            object-fit: cover; /* Mantiene la proporción de la imagen y evita distorsión */
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+
+        .event-card:hover {
+            transform: scale(1.05); /* Añadir un efecto de aumento al pasar el cursor */
+        }
+
+        .event-title {
+            font-size: 20px;
+            font-weight: 500;
+            margin-bottom: 10px;
+        }
+
+        .event-date {
+            font-size: 16px;
+            color: #757575;
+        }
+
+        .btn-buy {
+            border-radius: 30px;
+            background-color: #F0F600;
+            color: #343a40;
+            font-weight: bold;
+        }
+
+        .btn-buy:hover {
+            background-color: #D8DD0D;
+            color: #fff;
+        }
+
+        /* Formato de los filtros */
+        .filter-form {
+            margin-bottom: 30px;
+        }
+
+
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="navbar navbar-expand-lg navbar-dark">
+        <a class="navbar-brand" href="#">
+            <img src="img1.png.png" alt="" width="200" height="70">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarContent">
+             </li>
+            <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="concierto.html">Conciertos</a>
+                        <a class="dropdown-item" href="entretenimiento.html">Entretenimiento</a>
+                        <a class="dropdown-item" href="deporte.html">Deportes</a>
+                    </div>
+                </li>
+            <!-- Buscador de Barra -->
+            <form class="form-inline my-2 my-lg-0 mx-auto">
+                <input class="form-control mr-sm-2" type="search" placeholder="Buscar eventos..." aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
+            </form>
+            <!-- Login -->
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Login/Register</a>
+                </li>
+            </ul>
+        </div>
+    </header>
+    <!-- Banner Principal -->
+    
+    <!-- Sección de Eventos Destacados -->
+    
+
+    <!-- Sección de Eventos Destacados -->
+    <section class="featured-events container mt-5">
+        <h2 class="section-title">Eventos Concierto</h2>
+        
+        <!-- Ordenación -->
+        <form id="sortForm" class="filter-form">
+            <div class="row">
+                <div class="col-md-6">
+                    <label for="sortOrder">Ordenar Por</label>
+                    <select id="sortOrder" class="form-control">
+                        <option value="dateAsc">Fecha: Antiguo a Nuevo</option>
+                        <option value="dateDesc">Fecha: Nuevo a Antiguo</option>
+                        <option value="priceAsc">Precio: Menor a Mayor</option>
+                        <option value="priceDesc">Precio: Mayor a Menor</option>
+                    </select>
+                </div>
+                <div class="col-md-6">
+                    <button type="submit" class="btn btn-primary mt-4">Aplicar Ordenación</button>
+                </div>
+            </div>
+        </form>
+
+        <!-- Eventos -->
+        <div class="row" id="eventList">
+            <!-- Los eventos serán generados dinámicamente aquí -->
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-center py-3">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-6 col-sm-12">
+                    <h5>Acerca de</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#">Quiénes somos</a></li>
+                        <li><a href="#">Términos y condiciones</a></li>
+                        <li><a href="#">Política de privacidad</a></li>
+                        <li><a href="#">Contacto</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-12">
+                    <h5>Soporte</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#">Centro de ayuda</a></li>
+                        <li><a href="#">Preguntas frecuentes</a></li>
+                        <li><a href="#">Soporte técnico</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-12">
+                    <h5>Eventos</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#">Conciertos</a></li>
+                        <li><a href="#">Deportes</a></li>
+                        <li><a href="#">Teatro</a></li>
+                        <li><a href="#">Festivales</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-12">
+                    <h5>Síguenos</h5>
+                    <ul class="social-list">
+                        <li><a href="#"><img src="facebook-icon.png" alt="Facebook"></a></li>
+                        <li><a href="#"><img src="twitter-icon.png" alt="Twitter"></a></li>
+                        <li><a href="#"><img src="instagram-icon.png" alt="Instagram"></a></li>
+                        <li><a href="#"><img src="youtube-icon.png" alt="YouTube"></a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 text-center">
+                    <p class="footer-text">&copy; 2024 Tu Sitio Web. Todos los derechos reservados.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <!-- JavaScript para manejar los eventos -->
+    <script>
+        const events = [
+            { title: "Concierto A", date: "2024-10-12", price: 30, image: "concierto1.jpg" },
+            { title: "Teatro B", date: "2024-11-20", price: 30, image: "concierto2.jpg" },
+            { title: "Deportes C", date: "2024-12-05", price: 30, image: "concierto3.jpg" },
+            { title: "Concierto A", date: "2024-10-12", price: 30, image: "concierto4.jpg" },
+            { title: "Teatro B", date: "2024-11-20", price: 30, image: "concierto5.jpg" },
+            { title: "Deportes C", date: "2024-12-05", price: 30, image: "concierto6.jpg" },
+            { title: "Concierto A", date: "2024-10-12", price: 30, image: "concierto7.jpg" },
+            { title: "Teatro B", date: "2024-11-20", price: 30, image: "concierto8.jpg" },
+            { title: "Deportes C", date: "2024-12-05", price: 30, image: "concierto9.jpg" },
+            { title: "Deportes C", date: "2024-12-05", price: 30, image: "concierto10.jpg" },
+            { title: "Deportes C", date: "2024-12-05", price: 30, image: "concierto11.jpg" },
+            { title: "Deportes C", date: "2024-12-05", price: 30, image: "concierto12.jpg" }
+        ];
+
+        function renderEvents(events) {
+            const eventList = document.getElementById('eventList');
+            eventList.innerHTML = '';
+            events.forEach(event => {
+                const eventCard = `
+                    <div class="col-md-4">
+                        <div class="event-card">
+                            <img src="${event.image}" alt="${event.title}">
+                            <h3 class="event-title">${event.title}</h3>
+                            <p class="event-date">${new Date(event.date).toLocaleDateString('es-ES')}</p>
+                            <p class="event-price">$${event.price.toFixed(2)}</p>
+                            <a href="#" class="btn btn-buy">Comprar</a>
+                        </div>
+                    </div>
+                `;
+                eventList.insertAdjacentHTML('beforeend', eventCard);
+            });
+        }
+
+        function sortEvents() {
+            const sortOrder = document.getElementById('sortOrder').value;
+
+            const sortedEvents = [...events].sort((a, b) => {
+                if (sortOrder === 'dateAsc') {
+                    return new Date(a.date) - new Date(b.date);
+                } else if (sortOrder === 'dateDesc') {
+                    return new Date(b.date) - new Date(a.date);
+                } else if (sortOrder === 'priceAsc') {
+                    return a.price - b.price;
+                } else if (sortOrder === 'priceDesc') {
+                    return b.price - a.price;
+                }
+                return 0;
+            });
+
+            renderEvents(sortedEvents);
+        }
+
+        document.getElementById('sortForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            sortEvents();
+        });
+
+        // Inicialmente renderizar todos los eventos
+        renderEvents(events);
+    </script>
+</body>
+</html>
