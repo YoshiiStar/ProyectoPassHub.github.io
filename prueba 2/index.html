@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalles del Evento</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="event-container">
+        <h2>Detalles del Evento</h2>
+
+        <!-- Información del Evento -->
+        <div class="event-info">
+            <h3>Información del Evento</h3>
+            <p><strong>Evento:</strong> <span id="eventName">Concierto de Rock</span></p>
+            <p><strong>Fecha:</strong> <span id="eventDate">20 de Noviembre, 2024</span></p>
+            <p><strong>Ubicación:</strong> <span id="eventLocation">Estadio Nacional</span></p>
+        </div>
+        <!-- Imagen del Evento -->
+    <div class="event-image">
+        <img src="https://e.rpp-noticias.io/xlarge/2024/09/30/192319_1649037.webp" alt="Imagen del Evento">
+    </div>
+
+        <!-- Detalles de la Compra -->
+        <div class="purchase-details">
+            <h3>Detalles de la Compra</h3>
+            <div class="ticket-options">
+                <p><strong>Número de Entradas:</strong></p>
+                <input type="number" id="ticketCount" value="1" min="1" required>
+                <p><strong>Categoría:</strong></p>
+                <select id="ticketCategory" onchange="updateTotal()" required>
+                    <option value="150.00">General - S/ 150.00</option>
+                    <option value="250.00">VIP - S/ 250.00</option>
+                    <option value="400.00">Platinium - S/ 400.00</option>
+                </select>
+                <p><strong>Precio por Entrada:</strong> S/ <span id="ticketPrice">150.00</span></p>
+            </div>
+        </div>
+
+        <!-- Total a Pagar -->
+        <div class="total-amount">
+            <h3>Total a Pagar</h3>
+            <p>S/ <span id="totalAmount">150.00</span></p>
+        </div>
+
+        <!-- Botón para ir a Métodos de Pago -->
+        <button onclick="redirectToPayment()">Ir a Métodos de Pago</button>
+    </div>
+
+    <script src="event-info.js"></script>
+</body>
+</html>
+

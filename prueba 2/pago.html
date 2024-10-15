@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Métodos de Pago</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="payment-container">
+        <h2>Métodos de Pago</h2>
+
+        <!-- Métodos de pago -->
+        <form id="paymentForm">
+            <div class="payment-methods">
+                <input type="radio" id="methodCard" name="paymentMethod" value="Tarjeta" checked>
+                <label for="methodCard">Tarjeta</label>
+                <input type="radio" id="methodQR" name="paymentMethod" value="QR">
+                <label for="methodQR">QR</label>
+                <input type="radio" id="methodYape" name="paymentMethod" value="Yape">
+                <label for="methodYape">Yape</label>
+            </div>
+
+            <!-- Información de Tarjeta -->
+            <div id="cardInfo" class="payment-info active">
+                <input type="text" id="cardNumber" placeholder="Número de tarjeta" required>
+                <input type="text" id="expiration" placeholder="Caducidad (MM/AA)" required>
+                <input type="text" id="cvv" placeholder="CVV" required>
+                <input type="text" id="firstName" placeholder="Nombres" required>
+                <input type="text" id="lastName" placeholder="Apellidos" required>
+                <input type="email" id="email" placeholder="Correo electrónico" required>
+            </div>
+
+            <!-- Información de QR -->
+            <div id="qrInfo" class="payment-info">
+                <div class="qr-container">
+                    <p>Escanea el siguiente código QR para realizar el pago.</p>
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSdtcEHE3Gr1eQZHsB-EL-tToo93sckoltR4A&s" alt="">
+                </div>
+            </div>
+
+            <!-- Información de Yape -->
+            <div id="yapeInfo" class="payment-info">
+                <p>Paga con tu <strong>Código de aprobación</strong>.</p>
+                <input type="text" id="phoneNumber" placeholder="Número de celular" required>
+                <input type="text" id="approvalCode" placeholder="Código de aprobación" required>
+            </div>
+
+            <!-- Botón de Pago -->
+            <button type="submit" id="payButton">Confirmar Pago</button>
+        </form>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

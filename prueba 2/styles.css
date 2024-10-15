@@ -1,0 +1,203 @@
+/* Estilos globales */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    background-color: #f5f5f5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 150vh;
+}
+
+.payment-container, .event-container {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    max-width: 600px;
+    width: 100%;
+}
+
+/* Encabezados */
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+h3 {
+    margin-bottom: 10px;
+    color: #00796b;
+}
+/* Estilos de la imagen del evento */
+.event-image {
+    text-align: center; /* Centrar la imagen */
+    margin: 10px 0; /* Espaciado vertical alrededor de la imagen */
+}
+
+.event-image img {
+    width: 100%; /* Ancho del 100% para que se ajuste al contenedor */
+    height: auto; /* Mantiene la proporción de la imagen */
+    border-radius: 10px; /* Bordes redondeados */
+}
+/* Información del Evento */
+.event-info, .purchase-details, .total-amount {
+    margin-bottom: 20px;
+}
+
+.event-info p, .purchase-details p, .total-amount p {
+    margin-bottom: 10px;
+    font-size: 16px;
+    color: #555;
+}
+
+.event-info p strong, .purchase-details p strong, .total-amount p strong {
+    color: #333;
+}
+/* Estilo de los campos de entrada */
+input[type="number"], select {
+    padding: 12px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    width: 100%;
+    font-size: 16px; /* Aumenta el tamaño de la fuente para mejorar la legibilidad */
+}    
+
+/* Botón general */
+button, .button {
+    padding: 12px;
+    background-color: #00bfa5;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    text-align: center;
+    display: block;
+    width: 100%;
+    text-decoration: none;
+}
+
+button:hover, .button:hover {
+    background-color: #009688;
+}
+
+/* Métodos de pago */
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+.payment-methods {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+}
+
+.payment-methods input[type="radio"] {
+    display: none;
+}
+
+.payment-methods label {
+    flex: 1;
+    text-align: center;
+    padding: 10px;
+    background-color: #f0f0f0;
+    border: 2px solid transparent;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.payment-methods input[type="radio"]:checked + label {
+    border-color: #00bfa5;
+    background-color: #e0f7fa;
+    color: #00796b;
+}
+
+/* Información de pago */
+.payment-info {
+    display: none;
+}
+
+.payment-info.active {
+    display: block;
+}
+
+input {
+    padding: 12px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    width: 100%;
+}
+
+/* QR Style */
+.qr-container {
+    text-align: center;
+}
+
+.qr-container img {
+    width: 150px;
+    height: 150px;
+}
+
+/* Responsive */
+@media (max-width: 400px) {
+    .payment-methods {
+        flex-direction: column;
+    }
+
+    .payment-methods label {
+        margin-bottom: 10px;
+    }
+}
+/* Estilos para la página de éxito */
+.success-container {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    max-width: 400px;
+    width: 100%;
+    text-align: center;
+    margin-top: 100px;
+}
+
+.success-container h2 {
+    font-size: 28px;
+    color: #4CAF50; /* Verde para indicar éxito */
+    margin-bottom: 20px;
+}
+
+.success-container p {
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 30px;
+}
+
+.success-container .button {
+    padding: 12px;
+    background-color: #00bfa5;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    display: block;
+    width: 100%;
+    transition: background-color 0.3s ease;
+}
+
+.success-container .button:hover {
+    background-color: #009688;
+}
